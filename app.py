@@ -6,13 +6,13 @@ from plotly import express as px
 # Función para conectarse a Snowflake
 def connect_to_snowflake():
     conn = snowflake.connector.connect(
-        user="DEV01",
-        password="Pruebas01.",
-        account="utb73008.us-east-1",
-        warehouse="COMPUTE_WH",
-        database="LUISAMIGO22",
-        schema="PUBLIC",
-        role="ACCOUNTADMIN"
+        user=st.secrets["SNOWFLAKE"]["USER"],
+        password=st.secrets["SNOWFLAKE"]["PASSWORD"],
+        account=st.secrets["SNOWFLAKE"]["ACCOUNT"],
+        warehouse=st.secrets["SNOWFLAKE"]["WAREHOUSE"],
+        database=st.secrets["SNOWFLAKE"]["DATABASE"],
+        schema=st.secrets["SNOWFLAKE"]["SCHEMA"],
+        role=st.secrets["SNOWFLAKE"]["ROLE"]
     )
     return conn
 
